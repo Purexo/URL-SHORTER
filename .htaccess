@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c> 
+    RewriteEngine on
+    RewriteCond %{REQUEST_URI} =/
+    RewriteRule ^(.*) index.php [L]
+            
+    RewriteCond %{REQUEST_URI} !/index\.php
+    RewriteCond %{REQUEST_URI} !/style
+    RewriteCond %{REQUEST_URI} !/api
+    
+    RewriteRule ^(.*) index.php?a=$1 [L]
+</IfModule>
