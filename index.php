@@ -23,7 +23,7 @@
 /* - ID en hexadecimale (prend moins de place)
 /* - Fonction de verification de l'URL Fourni on regarde si l'URL est valide via une Regex, pas en spyant l'url.
 ****************************/
-
+    include("install.php"); // initialise la bdd si ce n'est pas déa fait.
 
     $mysqli = new SQLite3('shorter.db');
     $protocol = "http://";
