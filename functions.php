@@ -6,8 +6,8 @@
     include("install.php"); // initialise la bdd si ce n'est pas déa fait.
 
     $mysqli = new SQLite3('shorter.db');
-    $protocol = "http://";
-    $domaine = "pupu.eu";
+    $protocol = $_SERVER['REQUEST_SCHEME']."://";
+    $domaine = $_SERVER['SERVER_NAME']."/" ;
 
     function redirect() {
         global $mysqli;
@@ -44,7 +44,7 @@
                 $idLien = $mysqli->lastInsertRowID();
                 $idLien = base_convert($idLien, 10, 36); // convertion en base36
                 $idLien = base64_encode($idLien);
-                $link = $protocol . $domaine . "/" . $idLien;
+                $link = $protocol . $domaine . $idLien;
 
                 $str  = '<form class="form-inline form-horizontal">';
                 $str .=     '<div class="form-group">';
