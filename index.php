@@ -96,26 +96,6 @@ redirect();
 
         </div><!-- /.container -->
 
-<!--
-    <center>
-        <a href="."><h1></h1></a> <! header image
-        <h6>Propulsé par <a href="http://www.sqlite.org/">SQlite3</a>, URL maintenant en base64</h6>
-            <?php echo shortURL(); ?>
-            <form method="post" action="./">
-                <textarea name="lien" placeholder="Votre lien à raccourcir :)"></textarea><br />
-                <input type="submit" value="Envoyer" />
-                <p>N'hésitez pas à partager ce service. Soyez sage ;)</p>
-                <p>
-                    Si vous aimez ce site, partagez-le à vos amis, et n'hésitez pas à faire une donation : <br />
-                    <a href="dogecoin://DCioevCoTpFYnJPEPAFdg6GJc8nywCCbaS">DogeCoin</a> : DCioevCoTpFYnJPEPAFdg6GJc8nywCCbaS <br />
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KFNCYZ6YGGBLG">Paypal</a>
-                </p>
-		        <p>Fork me on <a href="https://github.com/purexo/URL-SHORTER"> Github </a></p>
-            </form>
-        <div id="pub"><script type="text/javascript" src="http://ad.pandad.eu/get-script/53e12626cef7f39f3620c46a/468x60"></script></div>
-    </center>
--->
-
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
