@@ -17,8 +17,9 @@ Prerequi :
 
 Instalation :
 ======================
-1. editer dans index.php : $protocol $domaine pour correspondre à votre configuration
-2. Enjoy
+1. Enjoy
+
+(c'est tout pret à l'emploie, la BDD ce créé seul si besoin)
 
 Utilisation :
 ======================
