@@ -6,7 +6,7 @@
     include("install.php"); // initialise la bdd si ce n'est pas déa fait.
 
     $mysqli = new SQLite3('shorter.db');
-    $protocol = $_SERVER['REQUEST_SCHEME']."://";
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] ? "https://" : "http://";
     $domaine = $_SERVER['SERVER_NAME']."/" ;
 
     function redirect() {
