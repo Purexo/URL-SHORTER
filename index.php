@@ -78,7 +78,7 @@ redirect();
         <div class="container">
 
             <div class="starter-template">
-                <h1>Racourcissez vos URL</h1>
+                <h1>Racourcissez vos URL</h1> <hr />
                 <?php echo shortURL(); ?>
                 <form method="post" action="./">
                     <div class="form-group">
