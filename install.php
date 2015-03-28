@@ -10,7 +10,7 @@ foreach($sql as $ligne)
 $tabstr = explode(";", $str); // on split la ligne à chaques ; (separant les requetes)
 
 foreach ($tabstr as &$value) {
-    $value += ";" // On replace le ; puisqu'il à été enlevé avec expload
+    $value += ";"; // On replace le ; puisqu'il à été enlevé avec expload
     $sqlite->query($value); // On execute les requetes contenue dans le fichier sql
 }
 

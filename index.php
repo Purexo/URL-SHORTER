@@ -28,15 +28,16 @@
     $mysqli = new SQLite3('shorter.db');
     $protocol = "http://";
     $domaine = "pupu.eu";
-    
+
     if(isset($_GET["a"])) {
         /*
         * Le code à évolué, pour une compatibilitées anciens liens, on verifie que l'id passé bien en base64, sinon c'est qu'il est en base36
         */
         $a = $_GET["a"];
         //$a = urldecode($_GET["a"]);
+        /* --- retro compatibilité --- */
         $ab = base64_decode($a); // on decode du base64
-        if ($ab != false) $ab = base_convert($ab, 36, 10); // si la convertion a été faite avec succes on decode du base36 le decodage du base64
+        if (strlen($ab) >= 4) $ab = base_convert($ab, 36, 10); // si la convertion a été faite avec succes on decode du base36 le decodage du base64
         else $ab = base_convert($a, 36, 10); // sinon convertion de l'id en base36 vers décimale
 
         $req = "SELECT link FROM links WHERE id = " . (int)$ab;
@@ -59,9 +60,9 @@
   <body>
     <center>
         <a href="."><h1></h1></a> <!-- header image -->
-        <h6>Propulsé par <a href="http://www.sqlite.org/">SQlite3</a>, URL maintenant en base36</h6>
+        <h6>Propulsé par <a href="http://www.sqlite.org/">SQlite3</a>, URL maintenant en base64</h6>
             <?php
-            
+
                 if(isset($_POST['lien'])){
                     if (filter_var($_POST['lien'], FILTER_VALIDATE_URL)) {
                         $req = 'INSERT INTO links ( link ) VALUES ("'.$_POST['lien'].'")';
@@ -77,37 +78,21 @@
                         echo '<p> Votre lien n\'est pas une URL valide </p>';
                     }
                 }
-            
+
             ?>
             <form method="post" action="./">
                 <textarea name="lien" placeholder="Votre lien à raccourcir :)"></textarea><br />
                 <input type="submit" value="Envoyer" />
                 <p>N'hésitez pas à partager ce service. Soyez sage ;)</p>
                 <p>
-                    Si vous aimez ce site, partagez le à vos amis, et n'hésitez pas à faire une donnation : <br />
-                    <a href="dogecoin://DCioevCoTpFYnJPEPAFdg6GJc8nywCCbaS">Dons DogeCoin</a> : DCioevCoTpFYnJPEPAFdg6GJc8nywCCbaS <br />
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KFNCYZ6YGGBLG"> Dons Paypal </a>
+                    Si vous aimez ce site, partagez-le à vos amis, et n'hésitez pas à faire une donation : <br />
+                    <a href="dogecoin://DCioevCoTpFYnJPEPAFdg6GJc8nywCCbaS">DogeCoin</a> : DCioevCoTpFYnJPEPAFdg6GJc8nywCCbaS <br />
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KFNCYZ6YGGBLG">Paypal</a>
                 </p>
+		<p>Fork me on <a href="https://github.com/purexo/URL-SHORTER"> Github </a></p>
             </form>
         <div id="pub"><script type="text/javascript" src="http://ad.pandad.eu/get-script/53e12626cef7f39f3620c46a/468x60"></script></div>
     </center>
-
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//piwik.purexo.eu/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 3]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//piwik.purexo.eu/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
 
   </body>
 </html>
