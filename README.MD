@@ -13,7 +13,7 @@ Prerequi :
 ======================
 - Avoir un domaine dédié : pour ma part c'est pupu.eu (pour avoir le lien le plus court possible, apres ça peut marcher dans <http://exemple.exemples.ctropswag.com/emplacement/dossier/short>, mais je doute que votre URL sois reelement raccourcie :p)
 - Compatibilité php sqlite3 (apt-get install php5-sqlite)
-- s'assurer que l'utilisation de .htaccess est possible, sinon adaptez
+- s'assurer que l'utilisation de .htaccess est possible (ainsi que la reecriture d'URL), sinon adaptez
 
 Instalation :
 ======================
